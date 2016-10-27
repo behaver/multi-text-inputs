@@ -4,8 +4,10 @@
 var mtiAdd = function (event) {
     event.preventDefault();
     var addA = $(event.currentTarget);
+    var originItem = addA.parents('.mti-item');
+    var newItem = originItem.clone();
     var wrap = addA.parents('.mti');
-    wrap.append('<div class="mti-item"><input name="' + event.data.name + '[]" type="text"/><a href="#" class="mti-add">新增</a></div>');
+    wrap.append(newItem);
     addA.text('移除').removeClass('mti-add').addClass('mti-del');
 }
 
@@ -19,8 +21,6 @@ var mtiDel = function (event) {
 }
 
 jQuery(document).ready(function($) {
-    var name = $('.mti').attr('data-name');
-    $('.mti').append('<div class="mti-item"><input name="' + name + '[]" type="text"/><a href="#" class="mti-add">新增</a></div>');
-    $('.mti').on('click', '.mti-add', { name: name } , mtiAdd);
+    $('.mti').on('click', '.mti-add', mtiAdd);
     $('.mti').on('click', '.mti-del', mtiDel);
 });

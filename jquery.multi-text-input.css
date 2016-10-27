@@ -1,9 +1,13 @@
 .mti .mti-item {
     margin-bottom: 10px;
+    position: relative;
 }
 .mti a.mti-add, .mti a.mti-del {
+    position: absolute;
+    right: 12px;
+    top: 6px;
     text-decoration: none;
     color: #337ab7;
     margin-left: 10px;
-    font-size: 12px;
+    font-size: 14px;
 }
